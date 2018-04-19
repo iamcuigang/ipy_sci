@@ -17,7 +17,8 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
     d = X*theta-y;
-    delta = [d, d];
+    n = size(X,2);
+    delta = repmat(d, 1, n);
     theta = theta - alpha/m * sum(delta.*X)';
 
     % ============================================================
