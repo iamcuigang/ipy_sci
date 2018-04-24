@@ -20,7 +20,8 @@ grad = zeros(size(theta));
 hx = sigmoid(X*theta);
 J1 = -y.*log(hx);
 J2 = (1-y).*log(1-hx);
-J3 = lambda/(2*m)*sum(theta.^2);
+theta_but0 = theta(2:end);
+J3 = lambda/(2*m)*sum(theta_but0.^2);
 J = 1./m*sum(J1-J2);
 J = J + J3;
 
