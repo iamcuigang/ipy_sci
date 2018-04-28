@@ -37,16 +37,23 @@ grad = zeros(size(theta));
 %
 
 
+hx = sigmoid(X*theta);
+J1 = -y.*log(hx);
+J2 = (1-y).*log(1-hx);
+theta_but0 = theta(2:end);
+J3 = lambda/(2*m)*sum(theta_but0.^2);
+J = 1./m*sum(J1-J2);
+J = J + J3;
 
+det = hx-y;
+det = repmat(det, 1, size(X, 2));
 
-
-
-
-
-
+g1 = (lambda/m .* theta)';
+g1(1) = 0;
+grad = 1./m*sum(det.*X) + g1;
 
 % =============================================================
 
-grad = grad(:);
+%grad = grad(:);
 
 end
