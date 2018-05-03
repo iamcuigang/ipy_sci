@@ -32,7 +32,6 @@ X = [ones(m, 1) X];
 
 
 pp = X*all_theta';
-sel = 1:size(pp, 2);
 
 for i =1:length(p)
   [m, k] = max(pp(i, :));
