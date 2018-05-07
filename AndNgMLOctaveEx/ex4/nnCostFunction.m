@@ -87,8 +87,15 @@ J3 = lambda/(2*m) * ...
 
 J = J+J3;
 
-
 % -------------------------------------------------------------
+
+delta3 = A3 - yy;
+theta2_but0 = Theta2(:, 2:end);
+delta2 = delta3*theta2_but0 .* sigmoidGradient(Z2);
+Theta1(:, 1) = 0;
+Theta2(:, 1) = 0;
+Theta1_grad = 1.0/m .* (delta2' * X)  + lambda/m*Theta1;
+Theta2_grad = 1.0/m .* (delta3' * A2) + lambda/m*Theta2;
 
 % =========================================================================
 
