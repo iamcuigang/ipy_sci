@@ -165,7 +165,7 @@ pause;
 %
 
 lambda = 0;
-[theta] = trainLinearReg(X_poly, y, lambda);
+[theta] = trainLinearReg(X_poly, y, lambda)
 
 % Plot training data and fit
 figure(1);
@@ -193,6 +193,7 @@ for i = 1:m
 end
 
 fprintf('Program paused. Press enter to continue.\n');
+pause;
 pause;
 
 %% =========== Part 8: Validation for Selecting Lambda =============

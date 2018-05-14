@@ -46,7 +46,7 @@ function [X, fX, i] = fmincg(f, X, options, P1, P2, P3, P4, P5)
 % 1) Function name and argument specifications
 % 2) Output display
 %
-
+warning ("off", "Octave:divide-by-zero");
 % Read options
 if exist('options', 'var') && ~isempty(options) && isfield(options, 'MaxIter')
     length = options.MaxIter;
