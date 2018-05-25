@@ -21,11 +21,20 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i=1:length(X)
+    dmin = -1;
+    dmin_j = -1;
+    for j=1:K
+        dst = sum( (X(i,:) - centroids(j,:)).^2);
+%        disp(dst);
+        if (dmin > dst) || (dmin == -1)
+            dmin = dst;
+            dmin_j = j;
+        end
+    end
+%    disp(dmin_j);
+    idx(i, 1) = dmin_j;
+end
 
 % =============================================================
 
